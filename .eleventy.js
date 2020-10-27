@@ -18,6 +18,8 @@ module.exports = function(eleventyConfig) {
     return new CleanCSS({}).minify(code).styles;
   });
 
+  // Set directories to pass through to the dist folder
+  eleventyConfig.addPassthroughCopy('./src/assets');
 
   // Where are my things?
   return  {

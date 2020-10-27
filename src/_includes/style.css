@@ -1,54 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+@font-face {
+    font-family: 'Epilogue';
+    src: url("assets/Epilogue[slnt,wght].woff2") format("woff2-variations");
+    font-style: normal;
+    font-weight: 100 900;
+}
+
 :root {
+   --font-special:'Epilogue', sans-serif;
+    --font-plain:'Lora', serif;
   --flash: #8de9f4;
   --flourish: #f1b0fa;
+  --color-dark:#050505;
+  --color-darkish:#404040;
+  --color-lightish:#e6e6e6;
+  --color-light:#fafafa;
+  --color-mid:grey;
+   --flow-ratio: 1.618;
+   --ratio: 1.33;
+   --s-5: calc(var(--s-4) / var(--ratio));
+  --s-4: calc(var(--s-3) / var(--ratio));
+  --s-3: calc(var(--s-2) / var(--ratio));
+  --s-2: calc(var(--s-1) / var(--ratio));
+  --s-1: calc(var(--s0) / var(--ratio));
+  --s0: calc(1rem * var(--ratio));
+  --s1: calc(var(--s0) * var(--ratio));
+  --s2: calc(var(--s1) * var(--ratio));
+  --s3: calc(var(--s2) * var(--ratio));
+  --s4: calc(var(--s3) * var(--ratio));
+  --s5: calc(var(--s4) * var(--ratio));
+  --s6: calc(var(--s5) * var(--ratio));
+   --line-height: calc(0.5*var(--ratio)*var(--ratio));
+   --line-height-small:calc(0.8*var(--ratio));
 }
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-  background-color: var(--flourish);
+*, ::after, ::before {
+    box-sizing: border-box;
+    background-color: inherit;
+    font-family: inherit;
+    color: inherit;
+    overflow-wrap: break-word;
+    margin: 0;
+    padding: 0;
+    border: 0 solid;
 }
 
+html {
+ background-color:var(--flourish);
+}
 
 body {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-size: 18px;
-  color: #333;
-  line-height: 1.7;
-  border-top: solid 6px var(--flourish);
-  border-bottom: solid 6px var(--flourish);
-  background-color: #fff;
+ font-size: var(--s0);
+ line-height:var(--flow-ratio);
+ font-family:var(--font-plain);
+ background-color:var(--color-light);
+ color:var(--color-dark);
+}
+
+h2, h3, h4 {
+  line-height: var(--line-height-small);
+  font-family: var(--font-special);
+  hyphens: auto;
+  font-weight: 900;
+}
+
+h1 {
+  font-size: var(--s6);
+  line-height: 0.8;
+  font-family: var(--font-special);
+  hyphens: auto;
+  font-weight: 900;
+}
+
+h2 {
+  font-size: var(--s3);
+}
+
+h3 {
+  font-size: var(--s2);
+  padding-top: var(--s-1)
 }
 
 .tint {
   background-color: #e3eaed;
 }
 
-header,
-main,
-footer {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 3rem 2rem;
+img, video {
+ max-width: 100%;
+ display: block;
 }
 
-section {
-  padding-top: 1rem;
-  padding-bottom: 2rem;
+ol[class], ul[class] {
+    list-style: none;
 }
 
-section img {
-  width: 100%;
+header > *, footer > *, section > :not([class*="-bleed"]) {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 50ch;
 }
 
-h1 {
-  font-size: 3rem;
+section > * + * {
+    margin-top: var(--s2);
 }
-h1, h2, h3 {
-  margin:0;
-  padding: 1rem 0;
-  font-family: Arial, Helvetica, sans-serif;
+
+header > * + * ,
+.stax > * + *,
+footer > * + *  {
+    margin-top: var(--s1);
+}
+
+header, footer, section {
+ padding: var(--s4) var(--s-1);
+}
+
+.full-bleed {
+   width: 100vw;
+}
+img {
+    width: 100vw;
+    max-width: 57.2rem;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.some-bleed {
+  text-align: center;
+    width:100%;
+    max-width: 57.2rem;
+    margin-left: 50%;
+    transform: translateX(-50%);
 }
 
 a:link,

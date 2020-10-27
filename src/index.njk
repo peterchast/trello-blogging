@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>👋 HelloTrello</title>
+  <title>📣 Barbaric Yawps</title>
   {% set css %}
     {% include "style.css" %}
   {% endset %}
@@ -13,18 +13,18 @@
 </head>
 <body>
   <div class="tint">
-    <header>
-      <h1>HelloTrello!</h1>
+    <header class="site-head" role="banner">
+      <div><h1>Barbaric Yawps</h1></div>
       <p>
         This site is populated with content from a public <a href="{{ site.trello_board }}">Trello board</a>. Every deployment pulls the  content from the Trello API and generates the site's HTML at build time on <a href="https://netlify.com{{ site.utm }}">Netlify</a>.
       </p>
     </header>
   </div>
-  <main>
+  <main class="wrapper">
     {% for card in trello %}
     <section>
-      <h2>{{ card.name }}</h2>
-      <div>
+      <div><h2>{{ card.name }}</h2></div>
+      <div class="stax">
       {% markdown %}
         {{- card.desc | safe }}
       {% endmarkdown %}
@@ -33,12 +33,9 @@
     {% endfor %}
   </main>
   <div class="tint">
-    <footer>
+    <footer class="wrapper">
       <p>
-        This example includes <a href="https://stage--{{ site.host }}">staging</a> and <a href="https://{{ site.host }}">production</a> environments. Go ahead, take a look.
-      </p>
-      <p>
-        Environments are created by <a href="https://docs.netlify.com/site-deploys/overview/{{ site.utm }}#branches-and-deploys">Netlify's Branch Deploy</a> feature, but the code on each branch is identical — they simply filter the content included based on the labels on the Trello cards and the branch name.
+        This site is populated with content from a public <a href="{{ site.trello_board }}">Trello board</a>. Every deployment pulls the  content from the Trello API and generates the site's HTML at build time on <a href="https://netlify.com{{ site.utm }}">Netlify</a>.
       </p>
       <p>
         Feel free to explore this site's <a href="{{ pkg.repository.url }}">code in GitHub</a> to learn more and try this out for yourself.
